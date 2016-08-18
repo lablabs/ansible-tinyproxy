@@ -1,6 +1,6 @@
 ## tinyproxy
 
-[![Build Status](https://travis-ci.org/haad/ansible-tinyproxy.svg?branch=master)](https://travis-ci.org/haad/ansible-tinyproxy) [![Ansible Galaxy]()]()
+[![Build Status](https://travis-ci.org/haad/ansible-tinyproxy.svg?branch=master)](https://travis-ci.org/haad/ansible-tinyproxy) [![Ansible Galaxy](https://galaxy.ansible.com/haad/tinyproxy)]
 
 Set up (the latest version of) [Tinyproxy](https://tinyproxy.github.io/) on an Ubuntu systems.
 
