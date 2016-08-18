@@ -1,0 +1,46 @@
+User nobody
+Group nogroup
+
+Listen {{ tinyproxy_listen_address }}
+Port {{ tinyproxy_port }}
+
+Timeout 600
+
+DefaultErrorFile "/usr/share/tinyproxy/default.html"
+
+StatFile "/usr/share/tinyproxy/stats.html"
+
+Logfile "/var/log/tinyproxy/tinyproxy.log"
+
+LogLevel {{ tinyproxy_log_level }}
+
+PidFile "/var/run/tinyproxy/tinyproxy.pid"
+
+MaxClients {{ tinyproxy_maxclients }}
+
+MinSpareServers {{ tinyproxy_minspare_servers }}
+MaxSpareServers {{ tinyproxy_maxspare_servers }}
+
+StartServers {{ tinyproxy_startservers }}
+
+MaxRequestsPerChild {{ tinyproxy_maxrequest }}
+
+Allow 127.0.0.1
+Allow {{ tinyproxy_allowed_subnet }}
+
+{% if tinyproxy_denied_subnet is defined %}
+Deny {{ tinyproxy_denied_subnet }}
+{% endif %}
+
+{% if tinyproxy_filtering is defined %}
+Filter {{ tinyproxy_filtering.filter }}
+FilterURLs {{ tinyproxy_filtering.urls }}
+FilterExtended {{ tinyproxy_filtering.extended }}
+FilterCaseSensitive {{ tinyproxy_filtering.case_sensitive }}
+FilterDefaultDeny {{ tinyproxy_filtering.default_deny }}
+{% endif %}
+
+ViaProxyName "tinyproxy"
+
+ConnectPort 443
+ConnectPort 563
