@@ -7,11 +7,14 @@ tinyproxy_maxspare_servers: 10
 tinyproxy_startservers: 10
 tinyproxy_maxrequest: 0
 
-tinyproxy_allowed_subnet: 172.14.0.0/24
+tinyproxy_allowed_subnet: 0.0.0.0
 #tinyproxy_denied_subnet: ''
 
 tinyproxy_listen_address: 0.0.0.0
 tinyproxy_port: 8888
+
+tinyproxy_upstream_proxies: []
+
 
 #tinyproxy_filtering:
 #  filter: "/etc/tinyproxy/filter"
