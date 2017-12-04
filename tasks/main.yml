@@ -15,6 +15,16 @@
   notify:
     - restart tinyproxy
 
+- name: Remove SysV config file
+  file:
+    dest: /etc/init.d/tinyproxy
+    state: absent
+
+- name: Deploy Systemd config
+  copy:
+    dest: /etc/systemd/system/tinyproxy.service
+    src: tinyproxy.service
+
 - name: Ensure Tinyproxy is running
   become: yes
   service:

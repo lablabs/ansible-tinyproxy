@@ -1,0 +1,13 @@
+[Unit]
+Description=Tinyproxy
+Before=
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/etc
+ExecStart=/usr/sbin/tinyproxy -d -c tinyproxy.conf
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
