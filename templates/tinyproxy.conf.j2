@@ -20,10 +20,12 @@ StartServers {{ tinyproxy_startservers }}
 
 MaxRequestsPerChild {{ tinyproxy_maxrequest }}
 
+{% if not '0.0.0.0' in tinyproxy_allowed_subnets %}
 Allow 127.0.0.1
 {% for subnet in tinyproxy_allowed_subnets %}
 Allow {{ subnet }}
 {% endfor %}
+{% endif %}
 
 {% for subnet in tinyproxy_denied_subnets %}
 Deny {{ subnet }}
