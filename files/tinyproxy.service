@@ -6,6 +6,8 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=/etc
+ExecStartPre=/bin/mkdir -p /var/run/tinyproxy
+ExecStartPre=/bin/chown -R nobody:nogroup /var/run/tinyproxy
 ExecStart=/usr/sbin/tinyproxy -d -c tinyproxy.conf
 Restart=on-abort
 
