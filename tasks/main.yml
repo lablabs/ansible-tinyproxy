@@ -2,16 +2,16 @@
 - name: Install Tinyproxy for web access
   become: yes
   apt:
-    update_cache=yes
-    pkg=tinyproxy
-    force=yes
-    state=present
+    update_cache: yes
+    pkg: tinyproxy
+    force: yes
+    state: present
 
 - name: Setup Tinyproxy Config file
   become: yes
   template:
-    src=../templates/tinyproxy.conf.j2
-    dest=/etc/tinyproxy.conf
+    src: tinyproxy.conf.j2
+    dest: /etc/tinyproxy.conf
   notify:
     - restart tinyproxy
 
@@ -25,10 +25,13 @@
     dest: /etc/systemd/system/tinyproxy.service
     src: tinyproxy.service
 
+- name: Reload systemd daemon
+  command: systemctl daemon-reload
+
 - name: Ensure Tinyproxy is running
   become: yes
   service:
-    enabled=yes
-    name=tinyproxy
-    state=started
+    enabled: yes
+    name: tinyproxy
+    state: started
   changed_when: False
