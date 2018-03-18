@@ -1,7 +1,10 @@
 User nobody
 Group nogroup
 
-Listen {{ tinyproxy_listen_address }}
+{% for address in tinyproxy_listen_addresses %}
+Listen {{ address }}
+{% endfor %}
+
 Port {{ tinyproxy_port }}
 
 Timeout 600
@@ -49,5 +52,6 @@ Upstream {{ proxy.address }} {% if proxy.url is defined %} {{ proxy.url }} {% en
 
 ViaProxyName "tinyproxy"
 
-ConnectPort 443
-ConnectPort 563
+{% for port in tinyproxy_connect_ports | default([]) %}
+ConnectPort {{ port }}
+{% endfor %}

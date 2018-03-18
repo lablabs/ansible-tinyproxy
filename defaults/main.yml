@@ -11,11 +11,13 @@ tinyproxy_allowed_subnets:
     - 0.0.0.0
 tinyproxy_denied_subnets: []
 
-tinyproxy_listen_address: 0.0.0.0
+tinyproxy_listen_addresses:
+    - 0.0.0.0
 tinyproxy_port: 8888
 
 tinyproxy_upstream_proxies: []
 
+tinyproxy_connect_ports: []
 
 #tinyproxy_filtering:
 #  filter: "/etc/tinyproxy/filter"
