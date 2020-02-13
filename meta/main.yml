@@ -2,6 +2,7 @@
 galaxy_info:
   author: Adam Hamsik
   description: Tinyproxy install/setup role
+  company: Labyrinth Labs s.r.o.
   license: MIT
   min_ansible_version: 1.2
   platforms:
